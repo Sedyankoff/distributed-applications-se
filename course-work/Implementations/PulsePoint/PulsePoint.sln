@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulsePoint.API", "PulsePoint.API\PulsePoint.API.csproj", "{6371B815-498D-46A5-962D-B16D6CD2698B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pulse-point-client", "pulse-point-client\", "{4AD1194A-292C-44F0-90CA-6DE5993D9341}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61352"
+		Debug.AspNetCompiler.PhysicalPath = "pulse-point-client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61352\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61352"
+		Release.AspNetCompiler.PhysicalPath = "pulse-point-client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61352\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61352"
+		SlnRelativePath = "pulse-point-client\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulsePoint.Repository", "PulsePoint.Repository\PulsePoint.Repository.csproj", "{3CBF8AF9-E56F-494C-8092-89FB18B849E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulsePoint.Identity", "PulsePoint.Identity\PulsePoint.Identity.csproj", "{E468E371-38FC-43BF-856E-0506D7DBE066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulsePoint.Services", "PulsePoint.Services\PulsePoint.Services.csproj", "{8DC5B48D-6B0B-4CF5-B4D3-F951E99C1C93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6371B815-498D-46A5-962D-B16D6CD2698B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6371B815-498D-46A5-962D-B16D6CD2698B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6371B815-498D-46A5-962D-B16D6CD2698B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6371B815-498D-46A5-962D-B16D6CD2698B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD1194A-292C-44F0-90CA-6DE5993D9341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD1194A-292C-44F0-90CA-6DE5993D9341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD1194A-292C-44F0-90CA-6DE5993D9341}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD1194A-292C-44F0-90CA-6DE5993D9341}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3CBF8AF9-E56F-494C-8092-89FB18B849E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CBF8AF9-E56F-494C-8092-89FB18B849E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CBF8AF9-E56F-494C-8092-89FB18B849E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CBF8AF9-E56F-494C-8092-89FB18B849E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E468E371-38FC-43BF-856E-0506D7DBE066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E468E371-38FC-43BF-856E-0506D7DBE066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E468E371-38FC-43BF-856E-0506D7DBE066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E468E371-38FC-43BF-856E-0506D7DBE066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC5B48D-6B0B-4CF5-B4D3-F951E99C1C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC5B48D-6B0B-4CF5-B4D3-F951E99C1C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC5B48D-6B0B-4CF5-B4D3-F951E99C1C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC5B48D-6B0B-4CF5-B4D3-F951E99C1C93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
