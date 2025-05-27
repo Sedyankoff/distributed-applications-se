@@ -17,4 +17,5 @@ public interface IGoalService
     Task<IEnumerable<Goal>> GetUserGoalsAsync(Guid userId);
     Task AddUserGoalAsync(Guid userId, Guid goalId);
     Task RemoveUserGoalAsync(Guid userId, Guid goalId);
+    Task<IEnumerable<Goal>> SearchGoalsAsync(string? goalType, DateTime? startDate);
 }

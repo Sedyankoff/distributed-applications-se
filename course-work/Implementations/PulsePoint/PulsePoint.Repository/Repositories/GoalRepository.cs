@@ -28,4 +28,17 @@ public class GoalRepository : BaseRepository<Goal>, IGoalRepository
                      && g.EndDate >= today)
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<Goal>> SearchGoalsAsync(string? goalType, DateTime? startDate)
+    {
+        var query = _context.Goals.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(goalType))
+            query = query.Where(g => g.GoalType.Contains(goalType));
+
+        if (startDate.HasValue)
+            query = query.Where(g => g.StartDate.Date == startDate.Value.Date);
+
+        return await query.ToListAsync();
+    }
 }

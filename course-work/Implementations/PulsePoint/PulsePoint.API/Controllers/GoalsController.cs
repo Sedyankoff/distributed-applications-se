@@ -95,4 +95,11 @@ public class GoalsController : ControllerBase
         await _goalService.RemoveUserGoalAsync(request.UserId, request.GoalId);
         return Ok(new { message = "Goal removed from user successfully." });
     }
+
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchGoals([FromQuery] string? goalType, [FromQuery] DateTime? startDate)
+    {
+        var results = await _goalService.SearchGoalsAsync(goalType, startDate);
+        return Ok(results);
+    }
 }

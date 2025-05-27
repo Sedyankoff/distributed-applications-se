@@ -19,6 +19,7 @@ import {
     useTheme,
     Snackbar,
     Alert,
+    Box,
 } from "@mui/material";
 import { Add, Delete, Edit, ExitToApp } from "@mui/icons-material";
 import { useAuth } from "../components/context/AuthContext";
@@ -49,6 +50,10 @@ const GoalsPage = () => {
         message: "",
         severity: "success",
     });
+    const [searchParams, setSearchParams] = useState({
+        goalType: "",
+        startDate: ""
+    });
 
     useEffect(() => {
         fetchAllGoals();
@@ -70,6 +75,29 @@ const GoalsPage = () => {
             return false;
         }
         return true;
+    };
+
+    const handleSearchChange = (e) => {
+        setSearchParams({ ...searchParams, [e.target.name]: e.target.value });
+    };
+
+    const handleSearch = async () => {
+        setIsLoading(true);
+        try {
+            const query = new URLSearchParams();
+            if (searchParams.goalType) query.append("goalType", searchParams.goalType);
+            if (searchParams.startDate) query.append("startDate", searchParams.startDate);
+
+            const response = await axios.get(`https://localhost:7011/api/goals/search?${query.toString()}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            setAllGoals(response.data);
+        } catch (error) {
+            setSnackbar({ open: true, message: "Search failed", severity: "error" });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const fetchAllGoals = async () => {
@@ -210,12 +238,47 @@ const GoalsPage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                flexDirection: "column",
                 minHeight: "85vh",
                 minWidth: '95vw',
             }}
         >
+            <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                <Typography variant="h5" sx={{ mb: 2, color: theme.palette.primary.main }}>
+                    Search Goals
+                </Typography>
+                <Box
+                    sx=
+                    {{
+                        display: 'flex',
+                        gap: '1rem',
+                        marginBottom: '1rem'
+                    }}
+                >
+                    <TextField
+                        label="Goal Type"
+                        name="goalType"
+                        value={searchParams.goalType}
+                        onChange={handleSearchChange}
+                        size="small"
+                    />
+                    <TextField
+                        label="Start Date"
+                        name="startDate"
+                        type="date"
+                        value={searchParams.startDate}
+                        onChange={handleSearchChange}
+                        InputLabelProps={{ shrink: true }}
+                        size="small"
+                    />
+                    <Button variant="contained" onClick={handleSearch} sx={{ backgroundColor: theme.palette.primary.main }}>
+                        Search
+                    </Button>
+                </Box>
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "row"}}>
             {/* All Goals Section */}
-            <Paper sx={{ width: "50%", height: '45vh', padding: 3, margin: 3, borderRadius: '10px' }}>
+            <Paper sx={{ width: "50%", height: '50vh', padding: 3, margin: 3, borderRadius: '10px' }}>
                 <Typography variant="h4" sx={{ mb: 2, color: theme.palette.primary.main }}>
                     All Goals
                 </Typography>
@@ -270,9 +333,8 @@ const GoalsPage = () => {
                     Add Goal
                 </Button>
             </Paper>
-
             {/* User Goals Section */}
-            <Paper sx={{ width: "50%", height: '45vh', padding: 3, margin: 3, borderRadius: '10px' }}>
+            <Paper sx={{ width: "50%", height: '50vh', padding: 3, margin: 3, borderRadius: '10px' }}>
                 <Typography variant="h4" sx={{ mb: 2, color: theme.palette.primary.main }}>
                     My Goals
                 </Typography>
@@ -305,7 +367,7 @@ const GoalsPage = () => {
                     </Table>
                 </TableContainer>
             </Paper>
-
+            </Box>
             {/* Add/Edit Goal Dialog */}
             <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
                 <DialogTitle>{editMode ? "Edit Goal" : "Add Goal"}</DialogTitle>

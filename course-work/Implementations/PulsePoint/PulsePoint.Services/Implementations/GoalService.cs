@@ -75,4 +75,9 @@ public class GoalService : IGoalService
             throw new Exception("UserGoal not found.");
         }
     }
+
+    public async Task<IEnumerable<Goal>> SearchGoalsAsync(string? goalType, DateTime? startDate)
+    {
+        return await _goalRepository.SearchGoalsAsync(goalType, startDate);
+    }
 }

@@ -11,4 +11,5 @@ public interface IGoalRepository : IBaseRepository<Goal>
 {
     Task<IEnumerable<Goal>> GetGoalsByUserIdAsync(Guid userId);
     Task<List<Goal>> GetActiveGoalsAsync(Guid userId);
+    Task<IEnumerable<Goal>> SearchGoalsAsync(string? goalType, DateTime? startDate);
 }
